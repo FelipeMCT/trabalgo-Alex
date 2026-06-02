@@ -1,0 +1,33 @@
+<div class="container mt-4">
+  <h2>{{ editando ? 'Editar Prato' : 'Novo Prato' }}</h2>
+
+  <form (ngSubmit)="salvar()" #form="ngForm" class="mt-3">
+    <div class="mb-3">
+      <label class="form-label">Nome</label>
+      <input type="text" class="form-control" [(ngModel)]="prato.nome" name="nome" required maxlength="100" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Descrição</label>
+      <textarea class="form-control" [(ngModel)]="prato.descricao" name="descricao" required maxlength="255" rows="3"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Categoria</label>
+      <input type="text" class="form-control" [(ngModel)]="prato.categoria" name="categoria" required maxlength="50" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Preço (R$)</label>
+      <input type="number" class="form-control" [(ngModel)]="prato.preco" name="preco" required min="0" step="0.01" />
+    </div>
+
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" [(ngModel)]="prato.disponivel" name="disponivel" id="disponivel" />
+      <label class="form-check-label" for="disponivel">Disponível</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary me-2">Salvar</button>
+    <a routerLink="/pratos" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>
